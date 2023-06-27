@@ -24,6 +24,24 @@ from termcolor import colored
 
 ##########################################################
 
+NONE=0
+FATAL=1
+ERROR=2
+WARNING=3
+INFO=4
+DEBUG=5
+TRACE=6
+
+gl_log_level=INFO
+
+##########################################################
+
+def set_log_level( log_level: int ):
+    global gl_log_level
+    gl_log_level = log_level
+
+##########################################################
+
 def print_fatal( s ):
     pref = colored( 'FATAL: ', 'magenta' )
     print( pref + s )

@@ -19,9 +19,6 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
-
-from termcolor import colored
-
 ##########################################################
 
 NONE=0
@@ -34,6 +31,13 @@ TRACE=6
 
 gl_log_level=INFO
 gl_has_color=True
+
+##########################################################
+
+try:
+    from termcolor import colored
+except ModuleNotFoundError:
+    gl_has_color=False
 
 ##########################################################
 

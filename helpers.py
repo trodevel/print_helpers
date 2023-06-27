@@ -29,6 +29,8 @@ INFO=4
 DEBUG=5
 TRACE=6
 
+##########################################################
+
 gl_log_level=INFO
 gl_has_color=True
 
@@ -47,9 +49,9 @@ def set_log_level( log_level: int ):
 
 ##########################################################
 
-def _colorize( s: str, color: str, attr: [] ):
+def _colorize( s: str, color: str, attrs: [] ):
     if gl_has_color:
-        return colored( s, color, attr )
+        return colored( s, color, attrs )
     return s
 
 ##########################################################

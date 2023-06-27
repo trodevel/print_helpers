@@ -33,6 +33,7 @@ DEBUG=5
 TRACE=6
 
 gl_log_level=INFO
+gl_has_color=True
 
 ##########################################################
 
@@ -42,10 +43,17 @@ def set_log_level( log_level: int ):
 
 ##########################################################
 
+def _colorize( s: str, color: str, attr: [] ):
+    if gl_has_color:
+        return colored( s, color, attr )
+    return s
+
+##########################################################
+
 def print_fatal( s ):
     if gl_log_level < FATAL:
         return
-    pref = colored( 'FATAL: ', 'magenta' )
+    pref = _colorize( 'FATAL: ', 'magenta' )
     print( pref + s )
 
 ##########################################################
@@ -53,7 +61,7 @@ def print_fatal( s ):
 def print_error( s ):
     if gl_log_level < ERROR:
         return
-    pref = colored( 'ERROR: ', 'red' )
+    pref = _colorize( 'ERROR: ', 'red' )
     print( pref + s )
 
 ##########################################################
@@ -61,7 +69,7 @@ def print_error( s ):
 def print_warning( s ):
     if gl_log_level < WARNING:
         return
-    pref = colored( 'WARNING: ', 'yellow' )
+    pref = _colorize( 'WARNING: ', 'yellow' )
     print( pref + s )
 
 ##########################################################
@@ -76,7 +84,7 @@ def print_info( s ):
 def print_debug( s, end_par = "\n", flush_par = False ):
     if gl_log_level < DEBUG:
         return
-    pref = colored( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
+    pref = _colorize( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
     print( pref, end=end_par, flush=flush_par )
 
 ##########################################################
@@ -84,7 +92,7 @@ def print_debug( s, end_par = "\n", flush_par = False ):
 def print_trace( s ):
     if gl_log_level < TRACE:
         return
-    pref = colored( 'TRACE: ' + s, 'grey', attrs=['bold'] )
+    pref = _colorize( 'TRACE: ' + s, 'grey', attrs=['bold'] )
     print( pref )
 
 ##########################################################

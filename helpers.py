@@ -43,35 +43,47 @@ def set_log_level( log_level: int ):
 ##########################################################
 
 def print_fatal( s ):
+    if gl_log_level < FATAL:
+        return
     pref = colored( 'FATAL: ', 'magenta' )
     print( pref + s )
 
 ##########################################################
 
 def print_error( s ):
+    if gl_log_level < ERROR:
+        return
     pref = colored( 'ERROR: ', 'red' )
     print( pref + s )
 
 ##########################################################
 
 def print_warning( s ):
+    if gl_log_level < WARNING:
+        return
     pref = colored( 'WARNING: ', 'yellow' )
     print( pref + s )
 
 ##########################################################
 
 def print_info( s ):
+    if gl_log_level < INFO:
+        return
     print( "INFO: " + s )
 
 ##########################################################
 
 def print_debug( s, end_par = "\n", flush_par = False ):
+    if gl_log_level < DEBUG:
+        return
     pref = colored( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
     print( pref, end=end_par, flush=flush_par )
 
 ##########################################################
 
 def print_trace( s ):
+    if gl_log_level < TRACE:
+        return
     pref = colored( 'TRACE: ' + s, 'grey', attrs=['bold'] )
     print( pref )
 

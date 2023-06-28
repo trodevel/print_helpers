@@ -19,42 +19,86 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
+##########################################################
 
-from termcolor import colored
+NONE=0
+FATAL=1
+ERROR=2
+WARNING=3
+INFO=4
+DEBUG=5
+TRACE=6
+
+##########################################################
+
+gl_log_level=INFO
+gl_has_color=True
+
+##########################################################
+
+try:
+    from termcolor import colored
+except ModuleNotFoundError:
+    gl_has_color=False
+
+##########################################################
+
+def set_log_level( log_level: int ):
+    global gl_log_level
+    gl_log_level = log_level
+
+##########################################################
+
+def _colorize( s: str, color: str, attrs: [] ):
+    if gl_has_color:
+        return colored( s, color, attrs )
+    return s
 
 ##########################################################
 
 def print_fatal( s ):
-    pref = colored( 'FATAL: ', 'magenta' )
+    if gl_log_level < FATAL:
+        return
+    pref = _colorize( 'FATAL: ', 'magenta' )
     print( pref + s )
 
 ##########################################################
 
 def print_error( s ):
-    pref = colored( 'ERROR: ', 'red' )
+    if gl_log_level < ERROR:
+        return
+    pref = _colorize( 'ERROR: ', 'red' )
     print( pref + s )
 
 ##########################################################
 
 def print_warning( s ):
-    pref = colored( 'WARNING: ', 'yellow' )
+    if gl_log_level < WARNING:
+        return
+    pref = _colorize( 'WARNING: ', 'yellow' )
     print( pref + s )
 
 ##########################################################
 
 def print_info( s ):
+    if gl_log_level < INFO:
+        return
     print( "INFO: " + s )
 
 ##########################################################
 
 def print_debug( s, end_par = "\n", flush_par = False ):
-    pref = colored( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
+    if gl_log_level < DEBUG:
+        return
+    pref = _colorize( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
     print( pref, end=end_par, flush=flush_par )
 
 ##########################################################
 
 def print_trace( s ):
-    pref = colored( 'TRACE: ' + s, 'grey', attrs=['bold'] )
+    if gl_log_level < TRACE:
+        return
+    pref = _colorize( 'TRACE: ' + s, 'grey', attrs=['bold'] )
     print( pref )
 
 ##########################################################

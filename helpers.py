@@ -59,7 +59,7 @@ def _colorize( s: str, color: str, attrs: [] ):
 def print_fatal( s ):
     if gl_log_level < FATAL:
         return
-    pref = _colorize( 'FATAL: ', 'magenta' )
+    pref = _colorize( 'FATAL: ', 'magenta', [] )
     print( pref + s )
 
 ##########################################################
@@ -67,7 +67,7 @@ def print_fatal( s ):
 def print_error( s ):
     if gl_log_level < ERROR:
         return
-    pref = _colorize( 'ERROR: ', 'red' )
+    pref = _colorize( 'ERROR: ', 'red', [] )
     print( pref + s )
 
 ##########################################################
@@ -75,7 +75,7 @@ def print_error( s ):
 def print_warning( s ):
     if gl_log_level < WARNING:
         return
-    pref = _colorize( 'WARNING: ', 'yellow' )
+    pref = _colorize( 'WARNING: ', 'yellow', [] )
     print( pref + s )
 
 ##########################################################

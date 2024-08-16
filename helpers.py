@@ -51,7 +51,7 @@ def set_log_level( log_level: int ):
 
 def _colorize( s: str, color: str, attrs: [] ):
     if gl_has_color:
-        return colored( s, color, attrs )
+        return colored( s, color, None, attrs )
     return s
 
 ##########################################################

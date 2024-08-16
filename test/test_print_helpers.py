@@ -34,6 +34,7 @@ def test():
     print_helpers.print_info( "test" )
     print_helpers.print_debug( "test" )
     print_helpers.print_trace( "test" )
+    print_helpers.print_ok( "test" )
 
 ##########################################################
 

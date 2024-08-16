@@ -56,6 +56,31 @@ def _colorize( s: str, color: str, attrs: [] ):
 
 ##########################################################
 
+def pref_fatal( s: str ):
+    pref = _colorize( 'FATAL: ', 'magenta', [] )
+    return pref + s
+
+def pref_error( s: str ):
+    pref = _colorize( 'ERROR: ', 'red', [] )
+    return pref + s
+
+def pref_warning( s: str ):
+    pref = _colorize( 'WARNING: ', 'yellow', [] )
+    return pref + s
+
+def pref_info( s: str ):
+    return "INFO: " + s
+
+def pref_debug( s: str ):
+    pref = _colorize( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
+    return pref
+
+def pref_trace( s: str ):
+    pref = _colorize( 'TRACE: ' + s, 'grey', attrs=['bold'] )
+    return pref
+
+##########################################################
+
 def print_fatal( s ):
     if gl_log_level < FATAL:
         return

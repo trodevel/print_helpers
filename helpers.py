@@ -160,7 +160,7 @@ def print_p_info( pref, s ):
 
 ##########################################################
 
-def print_p_debug( s, end_par = "\n", flush_par = False ):
+def print_p_debug( pref, s, end_par = "\n", flush_par = False ):
     if gl_log_level < DEBUG:
         return
     print( pref + pref_debug( s ), end=end_par, flush=flush_par )

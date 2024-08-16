@@ -38,13 +38,13 @@ def test_01():
 
 def test_02():
 
-    print_helpers.print_p_fatal( "prefix ", "test" )
-    print_helpers.print_p_error( "prefix ", "test" )
-    print_helpers.print_p_warning( "prefix ", "test" )
-    print_helpers.print_p_info( "prefix ", "test" )
-    print_helpers.print_p_debug( "prefix ", "test" )
-    print_helpers.print_p_trace( "prefix ", "test" )
-    print_helpers.print_p_ok( "prefix ", "test" )
+    print_helpers.print_p_fatal( "prefix", "test" )
+    print_helpers.print_p_error( "prefix", "test" )
+    print_helpers.print_p_warning( "prefix", "test" )
+    print_helpers.print_p_info( "prefix", "test" )
+    print_helpers.print_p_debug( "prefix", "test" )
+    print_helpers.print_p_trace( "prefix", "test" )
+    print_helpers.print_p_ok( "prefix", "test" )
 
 ##########################################################
 

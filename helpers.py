@@ -135,44 +135,44 @@ def print_ok( s ):
 def print_p_fatal( pref, s ):
     if gl_log_level < FATAL:
         return
-    print( pref + pref_fatal( s ) )
+    print( pref + " " + pref_fatal( s ) )
 
 ##########################################################
 
 def print_p_error( pref, s ):
     if gl_log_level < ERROR:
         return
-    print( pref + pref_error( s ) )
+    print( pref + " " + pref_error( s ) )
 
 ##########################################################
 
 def print_p_warning( pref, s ):
     if gl_log_level < WARNING:
         return
-    print( pref + pref_warning( s ) )
+    print( pref + " " + pref_warning( s ) )
 
 ##########################################################
 
 def print_p_info( pref, s ):
     if gl_log_level < INFO:
         return
-    print( pref + pref_info( s ) )
+    print( pref + " " + pref_info( s ) )
 
 ##########################################################
 
 def print_p_debug( pref, s, end_par = "\n", flush_par = False ):
     if gl_log_level < DEBUG:
         return
-    print( pref + pref_debug( s ), end=end_par, flush=flush_par )
+    print( pref + " " + pref_debug( s ), end=end_par, flush=flush_par )
 
 ##########################################################
 
 def print_p_trace( pref, s ):
     if gl_log_level < TRACE:
         return
-    print( pref + pref_trace( s ) )
+    print( pref + " " + pref_trace( s ) )
 
 ##########################################################
 
 def print_p_ok( pref, s ):
-    print( pref + pref_ok( s ) )
+    print( pref + " " + pref_ok( s ) )

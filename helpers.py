@@ -139,40 +139,40 @@ def print_p_fatal( pref, s ):
 
 ##########################################################
 
-def pring_p_error( pref, s ):
+def print_p_error( pref, s ):
     if gl_log_level < ERROR:
         return
     print( pref + pref_error( s ) )
 
 ##########################################################
 
-def pring_p_warning( pref, s ):
+def print_p_warning( pref, s ):
     if gl_log_level < WARNING:
         return
     print( pref + pref_warning( s ) )
 
 ##########################################################
 
-def pring_p_info( pref, s ):
+def print_p_info( pref, s ):
     if gl_log_level < INFO:
         return
     print( pref + pref_info( s ) )
 
 ##########################################################
 
-def pring_p_debug( s, end_par = "\n", flush_par = False ):
+def print_p_debug( s, end_par = "\n", flush_par = False ):
     if gl_log_level < DEBUG:
         return
     print( pref + pref_debug( s ), end=end_par, flush=flush_par )
 
 ##########################################################
 
-def pring_p_trace( pref, s ):
+def print_p_trace( pref, s ):
     if gl_log_level < TRACE:
         return
     print( pref + pref_trace( s ) )
 
 ##########################################################
 
-def pring_p_ok( pref, s ):
+def print_p_ok( pref, s ):
     print( pref + pref_ok( s ) )

@@ -24,9 +24,7 @@ import print_helpers.helpers as print_helpers
 
 ##########################################################
 
-def test():
-
-    print_helpers.set_log_level( print_helpers.TRACE )
+def test_01():
 
     print_helpers.print_fatal( "test" )
     print_helpers.print_error( "test" )
@@ -35,6 +33,27 @@ def test():
     print_helpers.print_debug( "test" )
     print_helpers.print_trace( "test" )
     print_helpers.print_ok( "test" )
+
+##########################################################
+
+def test_02():
+
+    print_helpers.print_p_fatal( "prefix ", "test" )
+    print_helpers.print_p_error( "prefix ", "test" )
+    print_helpers.print_p_warning( "prefix ", "test" )
+    print_helpers.print_p_info( "prefix ", "test" )
+    print_helpers.print_p_debug( "prefix ", "test" )
+    print_helpers.print_p_trace( "prefix ", "test" )
+    print_helpers.print_p_ok( "prefix ", "test" )
+
+##########################################################
+
+def test():
+
+    print_helpers.set_log_level( print_helpers.TRACE )
+
+    test_01()
+    test_02()
 
 ##########################################################
 

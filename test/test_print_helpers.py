@@ -28,7 +28,12 @@ def test():
 
     print_helpers.set_log_level( print_helpers.TRACE )
 
+    print_helpers.print_fatal( "test" )
     print_helpers.print_error( "test" )
+    print_helpers.print_warning( "test" )
+    print_helpers.print_info( "test" )
+    print_helpers.print_debug( "test" )
+    print_helpers.print_trace( "test" )
 
 ##########################################################
 

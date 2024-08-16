@@ -79,6 +79,10 @@ def pref_trace( s: str ):
     pref = _colorize( 'TRACE: ' + s, 'grey', attrs=['bold'] )
     return pref
 
+def pref_ok( s: str ):
+    pref = _colorize( 'OK: ', 'green', [] )
+    return pref + s
+
 ##########################################################
 
 def print_fatal( s ):
@@ -122,3 +126,6 @@ def print_trace( s ):
     print( pref_trace( s ) )
 
 ##########################################################
+
+def print_ok( s ):
+    print( pref_ok( s ) )

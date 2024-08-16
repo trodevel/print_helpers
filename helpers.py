@@ -51,54 +51,128 @@ def set_log_level( log_level: int ):
 
 def _colorize( s: str, color: str, attrs: [] ):
     if gl_has_color:
-        return colored( s, color, attrs )
+        return colored( s, color, None, attrs )
     return s
+
+##########################################################
+
+def pref_fatal( s: str ):
+    pref = _colorize( 'FATAL: ', 'magenta', [] )
+    return pref + s
+
+def pref_error( s: str ):
+    pref = _colorize( 'ERROR: ', 'red', [] )
+    return pref + s
+
+def pref_warning( s: str ):
+    pref = _colorize( 'WARNING: ', 'yellow', [] )
+    return pref + s
+
+def pref_info( s: str ):
+    return "INFO: " + s
+
+def pref_debug( s: str ):
+    pref = _colorize( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
+    return pref
+
+def pref_trace( s: str ):
+    pref = _colorize( 'TRACE: ' + s, 'grey', attrs=['bold'] )
+    return pref
+
+def pref_ok( s: str ):
+    pref = _colorize( 'OK: ', 'green', [] )
+    return pref + s
 
 ##########################################################
 
 def print_fatal( s ):
     if gl_log_level < FATAL:
         return
-    pref = _colorize( 'FATAL: ', 'magenta', [] )
-    print( pref + s )
+    print( pref_fatal( s ) )
 
 ##########################################################
 
 def print_error( s ):
     if gl_log_level < ERROR:
         return
-    pref = _colorize( 'ERROR: ', 'red', [] )
-    print( pref + s )
+    print( pref_error( s ) )
 
 ##########################################################
 
 def print_warning( s ):
     if gl_log_level < WARNING:
         return
-    pref = _colorize( 'WARNING: ', 'yellow', [] )
-    print( pref + s )
+    print( pref_warning( s ) )
 
 ##########################################################
 
 def print_info( s ):
     if gl_log_level < INFO:
         return
-    print( "INFO: " + s )
+    print( pref_info( s ) )
 
 ##########################################################
 
 def print_debug( s, end_par = "\n", flush_par = False ):
     if gl_log_level < DEBUG:
         return
-    pref = _colorize( 'DEBUG: ' + s, 'grey', attrs=['bold'] )
-    print( pref, end=end_par, flush=flush_par )
+    print( pref_debug( s ), end=end_par, flush=flush_par )
 
 ##########################################################
 
 def print_trace( s ):
     if gl_log_level < TRACE:
         return
-    pref = _colorize( 'TRACE: ' + s, 'grey', attrs=['bold'] )
-    print( pref )
+    print( pref_trace( s ) )
 
 ##########################################################
+
+def print_ok( s ):
+    print( pref_ok( s ) )
+
+##########################################################
+
+def print_p_fatal( pref, s ):
+    if gl_log_level < FATAL:
+        return
+    print( pref + " " + pref_fatal( s ) )
+
+##########################################################
+
+def print_p_error( pref, s ):
+    if gl_log_level < ERROR:
+        return
+    print( pref + " " + pref_error( s ) )
+
+##########################################################
+
+def print_p_warning( pref, s ):
+    if gl_log_level < WARNING:
+        return
+    print( pref + " " + pref_warning( s ) )
+
+##########################################################
+
+def print_p_info( pref, s ):
+    if gl_log_level < INFO:
+        return
+    print( pref + " " + pref_info( s ) )
+
+##########################################################
+
+def print_p_debug( pref, s, end_par = "\n", flush_par = False ):
+    if gl_log_level < DEBUG:
+        return
+    print( pref + " " + pref_debug( s ), end=end_par, flush=flush_par )
+
+##########################################################
+
+def print_p_trace( pref, s ):
+    if gl_log_level < TRACE:
+        return
+    print( pref + " " + pref_trace( s ) )
+
+##########################################################
+
+def print_p_ok( pref, s ):
+    print( pref + " " + pref_ok( s ) )
